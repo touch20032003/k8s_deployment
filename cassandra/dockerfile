@@ -1,0 +1,4 @@
+FROM cassandra:latest
+RUN echo "authenticator: PasswordAuthenticator" >> /etc/cassandra/cassandra.yaml
+Run sed -i 's/authorizer: AllowAllAuthorizer/authorizer: org.apache.cassandra.auth.CassandraAuthorizer/g' /etc/cassandra/cassandra.yaml
+CMD ["cassandra", "-f"]
